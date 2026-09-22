@@ -19,7 +19,9 @@ const dialogTitle = document.getElementById('dialogTitle');
 const dialogMeta = document.getElementById('dialogMeta');
 
 document.querySelectorAll('.project-card').forEach(card => {
-  card.querySelector('.project-open').addEventListener('click', () => {
+  const opener = card.querySelector('.project-open');
+  if (!opener || opener.tagName === 'A') return;
+  opener.addEventListener('click', () => {
     const img = card.querySelector('img');
     dialogImage.src = img.src;
     dialogImage.alt = img.alt;
